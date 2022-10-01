@@ -46,6 +46,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         txtView.setText("View");
+        txtView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,6 +107,14 @@ public class MainJFrame extends javax.swing.JFrame {
         CreateJPanel createPanel = new CreateJPanel(history);
         jSplitPane1.setRightComponent(createPanel);
     }//GEN-LAST:event_txtCreateActionPerformed
+
+    private void txtViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewActionPerformed
+        // TODO add your handling code here:
+        ViewJPanel viewPanel = new ViewJPanel(history);
+        jSplitPane1.setRightComponent(viewPanel);
+        
+      
+    }//GEN-LAST:event_txtViewActionPerformed
 
     /**
      * @param args the command line arguments
