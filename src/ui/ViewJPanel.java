@@ -323,16 +323,18 @@ public class ViewJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
         Employee selectedEmploy = (Employee) model.getValueAt(selectedRowIndex, 0);
         
-        txtName.setText((selectedEmploy.getName()));
-        txtEmployeeId.setText(String.valueOf(selectedEmploy.getEmployeeId()));
-        txtAge.setText(String.valueOf(selectedEmploy.getAge()));
-        txtGender.setText((selectedEmploy.getGender()));
-        txtStartDate.setText((selectedEmploy.getStartDate()));
-        txtLevel.setText(String.valueOf(selectedEmploy.getLevel()));
-        txtTeamInfo.setText((selectedEmploy.getTeamInfo()));
-        txtPositionTitle.setText((selectedEmploy.getPositionTitle()));
-        txtCellPhoneNumber.setText(String.valueOf(selectedEmploy.getCellPhoneNumber()));
-        txtEmailAddress.setText((selectedEmploy.getEmailAddress()));
+        
+        
+        txtName1.setText((selectedEmploy.getName()));
+        txtEmployeeId1.setText(String.valueOf(selectedEmploy.getEmployeeId()));
+        txtAge1.setText(String.valueOf(selectedEmploy.getAge()));
+        txtGender1.setText((selectedEmploy.getGender()));
+        txtStartDate1.setText((selectedEmploy.getStartDate()));
+        txtLevel1.setText(String.valueOf(selectedEmploy.getLevel()));
+        txtTeamInfo1.setText((selectedEmploy.getTeamInfo()));
+        txtPositionTitle1.setText((selectedEmploy.getPositionTitle()));
+        txtCellPhoneNumber1.setText(String.valueOf(selectedEmploy.getCellPhoneNumber()));
+        txtEmailAddress1.setText((selectedEmploy.getEmailAddress()));
         
       
         
