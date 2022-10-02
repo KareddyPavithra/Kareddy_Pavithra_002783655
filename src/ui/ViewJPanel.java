@@ -88,6 +88,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtEmailAddress1 = new javax.swing.JTextField();
         lblEmailAddress1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
 
         lblName.setText("Name:");
 
@@ -145,6 +146,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmployeeMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmployee);
 
         btnView.setText("View");
@@ -196,6 +202,13 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,7 +221,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnView)
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete)
                 .addGap(21, 21, 21))
             .addGroup(layout.createSequentialGroup()
@@ -267,7 +282,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(btnView)
                     .addComponent(btnSearch)
                     .addComponent(btnDelete)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName1)
@@ -380,10 +396,81 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtSearchKeyReleased
 
+    private void tblEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeeMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        String Name = model.getValueAt(tblEmployee.getSelectedRow(), 0).toString();
+        String EmployeeId = model.getValueAt(tblEmployee.getSelectedRow(), 1).toString();
+        String Age = model.getValueAt(tblEmployee.getSelectedRow(), 2).toString();
+        String Gender = model.getValueAt(tblEmployee.getSelectedRow(), 3).toString();
+        String StartDate = model.getValueAt(tblEmployee.getSelectedRow(), 4).toString();
+        String Level = model.getValueAt(tblEmployee.getSelectedRow(), 5).toString();
+        String TeamInfo = model.getValueAt(tblEmployee.getSelectedRow(), 6).toString();
+        String PositionTitle = model.getValueAt(tblEmployee.getSelectedRow(), 7).toString();
+        String CellPhoneNumber = model.getValueAt(tblEmployee.getSelectedRow(), 8).toString();
+        String EmailAddress = model.getValueAt(tblEmployee.getSelectedRow(), 9).toString();
+                       
+        
+        txtName1.setText(Name);
+        txtEmployeeId1.setText(EmployeeId);
+        txtAge1.setText(Age);
+        txtGender1.setText(Gender);
+        txtStartDate1.setText(StartDate);
+        txtLevel1.setText(Level);
+        txtTeamInfo1.setText(TeamInfo);
+        txtPositionTitle1.setText(PositionTitle);
+        txtCellPhoneNumber1.setText(CellPhoneNumber);
+        txtEmailAddress1.setText(EmailAddress);
+        
+        
+        
+    }//GEN-LAST:event_tblEmployeeMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        if(tblEmployee.getSelectedRowCount() == 1){
+            
+        String name = txtName1.getText();
+        int employeeId = Integer.parseInt(txtEmployeeId1.getText());
+        int age = Integer.parseInt(txtAge1.getText());
+        String gender = txtGender1.getText();
+        String startDate = txtStartDate1.getText();
+        int level = Integer.parseInt(txtLevel1.getText());
+        String teamInfo = txtTeamInfo1.getText();
+        String positionTitle = txtPositionTitle1.getText();
+        int cellPhoneNumber = Integer.parseInt(txtCellPhoneNumber1.getText());
+        String emailAddress = txtEmailAddress1.getText();
+        
+        model.setValueAt(name, tblEmployee.getSelectedRow(), 0);
+        model.setValueAt(employeeId, tblEmployee.getSelectedRow(), 1);
+        model.setValueAt(age, tblEmployee.getSelectedRow(), 2);
+        model.setValueAt(gender, tblEmployee.getSelectedRow(), 3);
+        model.setValueAt(startDate, tblEmployee.getSelectedRow(), 4);
+        model.setValueAt(level, tblEmployee.getSelectedRow(), 5);
+        model.setValueAt(teamInfo, tblEmployee.getSelectedRow(), 6);
+        model.setValueAt(positionTitle, tblEmployee.getSelectedRow(), 7);
+        model.setValueAt(cellPhoneNumber, tblEmployee.getSelectedRow(), 8);
+        model.setValueAt(emailAddress, tblEmployee.getSelectedRow(), 9);
+        
+        JOptionPane.showMessageDialog(this, "Details updated");
+        }
+        else{
+            if(tblEmployee.getRowCount() ==0){
+                JOptionPane.showMessageDialog(this, "Table is empty");
+            }else{
+                JOptionPane.showMessageDialog(this, "Select a row to update");
+            }
+              
+        }
+       
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
