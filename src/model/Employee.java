@@ -4,6 +4,8 @@
  */
 package model;
 
+import javax.swing.Icon;
+
 /**
  *
  * @author pavit
@@ -19,6 +21,15 @@ public class Employee {
     private String positionTitle;
     private int cellPhoneNumber;
     private String emailAddress; 
+    private Icon photo;
+
+    public Icon getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Icon photo) {
+        this.photo = photo;
+    }
 
     public String getName() {
         return name;
@@ -41,6 +52,7 @@ public class Employee {
     }
 
     public void setAge(int age) {
+        
         this.age = age;
     }
 

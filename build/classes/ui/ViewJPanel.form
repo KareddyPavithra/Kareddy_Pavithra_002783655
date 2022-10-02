@@ -145,7 +145,7 @@
                                   </Group>
                                   <Component id="lblContactInfo1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="195" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtName1" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                                   <Component id="txtEmployeeId1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
@@ -173,6 +173,11 @@
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblIImage" min="-2" pref="199" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -243,7 +248,9 @@
                   <Component id="lblEmailAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtEmailAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblIImage" min="-2" pref="144" max="-2" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -446,6 +453,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSearch">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSearchActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyReleased"/>
       </Events>
     </Component>
@@ -456,6 +464,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIImage">
     </Component>
   </SubComponents>
 </Form>
