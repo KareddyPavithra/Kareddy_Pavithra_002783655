@@ -355,7 +355,19 @@ public class ViewJPanel extends javax.swing.JPanel {
         Employee selectedEmploy = (Employee) model.getValueAt(selectedRowIndex, 0);
         
         history.deleteEmployee(selectedEmploy);
+        txtName1.setText("");
+        txtEmployeeId1.setText("");
+        txtAge1.setText("");
+        txtGender1.setText("");
+        txtStartDate1.setText("");
+        txtLevel1.setText("");
+        txtTeamInfo1.setText("");
+        txtPositionTitle1.setText("");
+        txtCellPhoneNumber1.setText("");
+        txtEmailAddress1.setText("");
+        lblIImage.setIcon(null);
         JOptionPane.showMessageDialog(this,"Employee deleted.");
+        
         
         populateTable();
         
@@ -440,8 +452,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtPositionTitle1.setText(PositionTitle);
         txtCellPhoneNumber1.setText(CellPhoneNumber);
         txtEmailAddress1.setText(EmailAddress);
-        
-        
         
     }//GEN-LAST:event_tblEmployeeMouseClicked
 
