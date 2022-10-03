@@ -230,29 +230,13 @@ public class CreateJPanel extends javax.swing.JPanel {
         int cellPhoneNumber = Integer.parseInt(txtCellPhoneNumber.getText());
         String emailAddress = txtEmailAddress.getText();
         Icon photo = lblImage.getIcon();
+        
      if (age < 21 || age> 80){
          JOptionPane.showMessageDialog(this, "Enter a valid age");
          
      }
-     String emailadd = txtEmailAddress.getText();
-     Pattern pat = Pattern.compile("^[a-zA-Z0-9-]{1,50}$");
-     Matcher mt = pat.matcher(emailadd);
-     if(!mt.matches())
-     {
-         JOptionPane.showMessageDialog(this, "Enter a valid email-address");
-         flag = 1;
-         txtEmailAddress.setText("");
-     }
-     String nme = txtName.getText();
-     Pattern n = Pattern.compile("[a-zA-Z0-9-]{1,50}$");
-     Matcher mt2 = n.matcher(nme);
-     if(!mt2.matches())
-     {
-         JOptionPane.showMessageDialog(this, "Enter a valid name");
-         flag = 1;
-         txtName.setText("");
-     }
-     
+   
+
      else
       {
       Employee ee = history.addNewEmploy(); 
@@ -288,7 +272,7 @@ public class CreateJPanel extends javax.swing.JPanel {
       
       }  
     }//GEN-LAST:event_btnSaveActionPerformed
-
+    
     private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
         // TODO add your handling code here:
         JFileChooser uploadImage = new JFileChooser();
