@@ -6,6 +6,8 @@ package ui;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -216,6 +218,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        int flag =0;
         String name = txtName.getText();
         int employeeId = Integer.parseInt(txtEmployeeId.getText());
         int age = Integer.parseInt(txtAge.getText());
@@ -227,10 +230,31 @@ public class CreateJPanel extends javax.swing.JPanel {
         int cellPhoneNumber = Integer.parseInt(txtCellPhoneNumber.getText());
         String emailAddress = txtEmailAddress.getText();
         Icon photo = lblImage.getIcon();
-      if(age<13 || age>120){
-          JOptionPane.showMessageDialog(this, "Enter a valid age");
-      }  
-      else{
+     if (age < 21 || age> 80){
+         JOptionPane.showMessageDialog(this, "Enter a valid age");
+         
+     }
+     String emailadd = txtEmailAddress.getText();
+     Pattern pat = Pattern.compile("^[a-zA-Z0-9-]{1,50}$");
+     Matcher mt = pat.matcher(emailadd);
+     if(!mt.matches())
+     {
+         JOptionPane.showMessageDialog(this, "Enter a valid email-address");
+         flag = 1;
+         txtEmailAddress.setText("");
+     }
+     String nme = txtName.getText();
+     Pattern n = Pattern.compile("[a-zA-Z0-9-]{1,50}$");
+     Matcher mt2 = n.matcher(nme);
+     if(!mt2.matches())
+     {
+         JOptionPane.showMessageDialog(this, "Enter a valid name");
+         flag = 1;
+         txtName.setText("");
+     }
+     
+     else
+      {
       Employee ee = history.addNewEmploy(); 
       
       ee.setName(name);
@@ -258,6 +282,8 @@ public class CreateJPanel extends javax.swing.JPanel {
       txtCellPhoneNumber.setText("");
       txtEmailAddress.setText("");
       lblImage.setIcon(null);
+      
+     
       
       
       }  

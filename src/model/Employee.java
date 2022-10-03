@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.Date;
 import javax.swing.Icon;
 
 /**
@@ -22,14 +23,6 @@ public class Employee {
     private int cellPhoneNumber;
     private String emailAddress; 
     private Icon photo;
-
-    public Icon getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Icon photo) {
-        this.photo = photo;
-    }
 
     public String getName() {
         return name;
@@ -52,7 +45,6 @@ public class Employee {
     }
 
     public void setAge(int age) {
-        
         this.age = age;
     }
 
@@ -111,8 +103,13 @@ public class Employee {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    @Override
-    public String toString(){
-        return name;
+
+    public Icon getPhoto() {
+        return photo;
     }
+
+    public void setPhoto(Icon photo) {
+        this.photo = photo;
+    }
+
 }
