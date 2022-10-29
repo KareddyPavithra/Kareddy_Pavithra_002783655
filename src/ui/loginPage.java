@@ -4,6 +4,8 @@
  */
 package ui;
 
+import model.PersonHistory;
+
 /**
  *
  * @author pavit
@@ -13,8 +15,10 @@ public class loginPage extends javax.swing.JFrame {
     /**
      * Creates new form loginPage
      */
+    PersonHistory history = new PersonHistory();
     public loginPage() {
         initComponents();
+        this.history = history;
     }
 
     /**
@@ -34,10 +38,12 @@ public class loginPage extends javax.swing.JFrame {
         PatientBtn = new javax.swing.JButton();
         SystemAdminLogo = new javax.swing.JLabel();
         SystemAdminBtn = new javax.swing.JButton();
-        CommunityAdminLogo = new javax.swing.JLabel();
-        CommunityAdminBtn = new javax.swing.JButton();
+        PersonBtn = new javax.swing.JButton();
         DoctorLogo = new javax.swing.JLabel();
         DoctorBtn = new javax.swing.JButton();
+        CommunityAdminLogo2 = new javax.swing.JLabel();
+        CommunityAdminBtn1 = new javax.swing.JButton();
+        CommunityAdminLogo3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +73,7 @@ public class loginPage extends javax.swing.JFrame {
         PatientLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PatientLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\patient.png")); // NOI18N
         jPanel1.add(PatientLogo);
-        PatientLogo.setBounds(810, 290, 120, 110);
+        PatientLogo.setBounds(810, 270, 120, 110);
 
         PatientBtn.setText("Patient");
         PatientBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -77,7 +83,7 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(PatientBtn);
-        PatientBtn.setBounds(810, 420, 130, 30);
+        PatientBtn.setBounds(810, 410, 130, 30);
 
         SystemAdminLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SystemAdminLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\system admin  logo.png")); // NOI18N
@@ -86,23 +92,28 @@ public class loginPage extends javax.swing.JFrame {
 
         SystemAdminBtn.setText("System Admin");
         SystemAdminBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        SystemAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SystemAdminBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(SystemAdminBtn);
         SystemAdminBtn.setBounds(550, 210, 130, 30);
 
-        CommunityAdminLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CommunityAdminLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\community admin.png")); // NOI18N
-        jPanel1.add(CommunityAdminLogo);
-        CommunityAdminLogo.setBounds(690, 450, 130, 140);
-
-        CommunityAdminBtn.setText("Community Admin");
-        CommunityAdminBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(CommunityAdminBtn);
-        CommunityAdminBtn.setBounds(690, 590, 130, 30);
+        PersonBtn.setText("Person");
+        PersonBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PersonBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PersonBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(PersonBtn);
+        PersonBtn.setBounds(820, 610, 130, 30);
 
         DoctorLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DoctorLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\doctor.png")); // NOI18N
         jPanel1.add(DoctorLogo);
-        DoctorLogo.setBounds(560, 290, 120, 110);
+        DoctorLogo.setBounds(550, 270, 120, 110);
 
         DoctorBtn.setText("Doctor");
         DoctorBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -112,7 +123,27 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(DoctorBtn);
-        DoctorBtn.setBounds(550, 420, 130, 30);
+        DoctorBtn.setBounds(550, 410, 130, 30);
+
+        CommunityAdminLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CommunityAdminLogo2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\person.png")); // NOI18N
+        jPanel1.add(CommunityAdminLogo2);
+        CommunityAdminLogo2.setBounds(810, 460, 130, 140);
+
+        CommunityAdminBtn1.setText("Community Admin");
+        CommunityAdminBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CommunityAdminBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CommunityAdminBtn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CommunityAdminBtn1);
+        CommunityAdminBtn1.setBounds(550, 610, 130, 30);
+
+        CommunityAdminLogo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CommunityAdminLogo3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pavit\\OneDrive\\Desktop\\images\\community admin.png")); // NOI18N
+        jPanel1.add(CommunityAdminLogo3);
+        CommunityAdminLogo3.setBounds(550, 460, 130, 140);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,15 +164,52 @@ public class loginPage extends javax.swing.JFrame {
 
     private void HospitalAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalAdminBtnActionPerformed
         // TODO add your handling code here:
+        UserLoginFrame userlogpanel = new UserLoginFrame();
+        userlogpanel.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_HospitalAdminBtnActionPerformed
 
     private void PatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientBtnActionPerformed
         // TODO add your handling code here:
+        UserLoginFrame userlogpanel = new UserLoginFrame();
+        userlogpanel.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_PatientBtnActionPerformed
 
     private void DoctorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorBtnActionPerformed
         // TODO add your handling code here:
+        UserLoginFrame userlogpanel = new UserLoginFrame();
+        userlogpanel.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_DoctorBtnActionPerformed
+
+    private void SystemAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemAdminBtnActionPerformed
+        // TODO add your handling code here:
+        UserLoginFrame userlogpanel = new UserLoginFrame();
+        userlogpanel.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_SystemAdminBtnActionPerformed
+
+    private void CommunityAdminBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommunityAdminBtn1ActionPerformed
+        // TODO add your handling code here:
+        UserLoginFrame userlogpanel = new UserLoginFrame();
+        userlogpanel.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_CommunityAdminBtn1ActionPerformed
+
+    private void PersonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonBtnActionPerformed
+        // TODO add your handling code here:
+        PersonFrame personpanel = new PersonFrame ();
+        personpanel.setVisible(true);
+        
+        dispose();
+        
+    }//GEN-LAST:event_PersonBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +240,7 @@ public class loginPage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new loginPage().setVisible(true);
             }
@@ -179,8 +248,9 @@ public class loginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CommunityAdminBtn;
-    private javax.swing.JLabel CommunityAdminLogo;
+    private javax.swing.JButton CommunityAdminBtn1;
+    private javax.swing.JLabel CommunityAdminLogo2;
+    private javax.swing.JLabel CommunityAdminLogo3;
     private javax.swing.JButton DoctorBtn;
     private javax.swing.JLabel DoctorLogo;
     private javax.swing.JButton HospitalAdminBtn;
@@ -188,6 +258,7 @@ public class loginPage extends javax.swing.JFrame {
     private javax.swing.JLabel HospitalImg;
     private javax.swing.JButton PatientBtn;
     private javax.swing.JLabel PatientLogo;
+    private javax.swing.JButton PersonBtn;
     private javax.swing.JButton SystemAdminBtn;
     private javax.swing.JLabel SystemAdminLogo;
     private javax.swing.JPanel jPanel1;
