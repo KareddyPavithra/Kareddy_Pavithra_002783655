@@ -9,14 +9,24 @@ package model;
  * @author pavit
  */
 public class Community {
-    private String community;
+    private String communityName;
+    
+    public Community(String communityName)
+    {
+        this.communityName = communityName;
+    }
 
     public String getCommunity() {
-        return community;
+        return communityName;
     }
 
-    public void setCommunity(String community) {
-        this.community = community;
+    public void setCommunity(String communityName) {
+        this.communityName = communityName;
     }
+    
+//    public static void main(String args[])
+//    {
+//        
+//    }
     
 }

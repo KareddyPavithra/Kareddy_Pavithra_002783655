@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.City;
+import model.HospitalsList;
 import model.PersonHistory;
 
 /**
@@ -19,10 +20,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     /**
      * Creates new form SystemAdminFrame
      */
+    static HospitalsList hospitalsList = new HospitalsList();
+
     PersonHistory history =  new PersonHistory();
     
     DefaultTableModel tableModel;
     static ArrayList<City> cityList = new ArrayList<City>();
+    
     public SystemAdminFrame() {
         initComponents();
        this.history = history;
@@ -283,7 +287,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
         // TODO add your handling code here:
-        HospitalFrame hf = new HospitalFrame();
+        HospitalFrame hf = new HospitalFrame(hospitalsList);
         //splitPane.setRightComponent(sa);
         hf.setVisible(true);
         dispose();

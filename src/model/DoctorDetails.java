@@ -9,6 +9,9 @@ package model;
  * @author pavit
  */
 public class DoctorDetails extends Hospital{
+
+    public DoctorDetails(String doctorName) {
+    }
     private String doctor;
     private String usernamed;
     private String passwordd;

@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,8 +13,7 @@ import java.util.List;
  */
 public class City {
     private String cityName;
-    private List<Community>communities;
-    private String community;
+    protected List<Community> communities = new ArrayList<>();
     private String hospital;
 
     public String getHospital() {
@@ -26,7 +26,7 @@ public class City {
     
     public City(String cityName, String community, String hospital){
         this.cityName = cityName;
-        this.community = community;
+        //this.community = community;
         this.hospital = hospital;
     }
 
@@ -42,16 +42,11 @@ public class City {
         return communities;
     }
 
-    public void setCommunities(List<Community> communities) {
-        this.communities = communities;
+    public void setCommunities(String communityName) {
+//        this.communities = communities;
+          Community community = new Community(communityName);
+          communities.add(community);
     }
 
-    public String getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(String community) {
-        this.community = community;
-    }
     
 }

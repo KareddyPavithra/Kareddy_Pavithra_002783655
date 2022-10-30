@@ -4,8 +4,14 @@
  */
 package ui;
 
+import java.util.List;
+import model.Citylist;
+import model.City;
+import model.PersonList;
 import model.HospitalsList;
+import model.DoctorsList;
 import model.PersonHistory;
+import model.Community;
 
 /**
  *
@@ -18,17 +24,22 @@ public class loginPage extends javax.swing.JFrame {
      */
     PersonHistory history = new PersonHistory();
     private HospitalsList hospitalsList;
-    private patientlist patient;
+    private PersonList patient;
     private DoctorsList doctorslist;
-    private communitylist community;
-    private citylist city; 
+    private Citylist cityList; 
+    private City city; 
+    private Community community; 
+    protected List<Community> communities;
+    
     public loginPage() {
         initComponents();
         hospitalsList = new HospitalsList();
-        patient = new patientList();
-        doctorslist = new Doctorslist();
-        community = new communitylist();
-        city = new citylist();
+        patient = new PersonList();
+        doctorslist = new DoctorsList();
+        //community = new Community();
+        //communities.add(community);
+        //city.setCommunities(communities);
+        cityList = new Citylist();
     }
 
     /**
@@ -174,7 +185,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void HospitalAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalAdminBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList, patient, doctorslist, community, city);
+        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -182,7 +193,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void PatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList, patient, doctorslist, community, city);
+        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -190,7 +201,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void DoctorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList, patient, doctorslist, community, city);
+        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -198,7 +209,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void SystemAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemAdminBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList, patient, doctorslist, community, city);
+        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -206,7 +217,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void CommunityAdminBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommunityAdminBtn1ActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList, patient, doctorslist, community, city);
+        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();

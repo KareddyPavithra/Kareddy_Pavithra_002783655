@@ -8,14 +8,14 @@ package model;
  *
  * @author pavit
  */
-public class DoctorsList {
-    private String doctor;
+public class PersonList {
+    private String patient;
 
     public String getPatient() {
-        return doctor;
+        return patient;
     }
 
-    public void setHospital(String doctor) {
-        this.doctor = doctor;
+    public void setHospital(String patient) {
+        this.patient = patient;
     }
 }

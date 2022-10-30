@@ -5,7 +5,10 @@
 package ui;
 
 import javax.swing.JOptionPane;
+import model.Citylist;
+import model.DoctorsList;
 import model.HospitalsList;
+import model.PersonList;
 
 /**
  *
@@ -13,14 +16,24 @@ import model.HospitalsList;
  */
 public class UserLoginFrame extends javax.swing.JFrame {
 
-    HospitalsList hospitalsList;
+    static HospitalsList hospitalsList = new HospitalsList();
+    static PersonList patient = new PersonList();
+    static DoctorsList doctorslist = new DoctorsList();
+    static Citylist cityList = new Citylist();
+    
     /**
      * Creates new form UserLoginFrame
      * @param hospitalsList
+     * @param patient
+     * @param doctorslist
+     * @param cityList
      */
-    public UserLoginFrame(HospitalsList hospitalsList) {
+    public UserLoginFrame(HospitalsList hospitalsList, PersonList patient, DoctorsList doctorslist, Citylist cityList) {
         initComponents();
         this.hospitalsList = hospitalsList;
+        this.patient = patient;
+        this.doctorslist = doctorslist;
+        this.cityList = cityList;
     }
 
     /**
@@ -167,6 +180,12 @@ public class UserLoginFrame extends javax.swing.JFrame {
             doc.setVisible(true);
             dispose();
         }
+        else if (password.contains("Pat123") && (username.contains("patad")))
+        {
+            PatientFrame pat = new PatientFrame();
+            pat.setVisible(true);
+            dispose();
+        }
 
         else
         {
@@ -210,11 +229,12 @@ public class UserLoginFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(UserLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserLoginFrame().setVisible(true);
+                new UserLoginFrame(hospitalsList, patient, doctorslist, cityList).setVisible(true);
             }
         });
     }
