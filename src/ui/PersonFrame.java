@@ -20,9 +20,7 @@ public class PersonFrame extends javax.swing.JFrame {
      */
     PersonHistory history = new PersonHistory();
     
-    private PersonFrame(){
-        throw new UnsupportedOperationException("Not Supported Yet");
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

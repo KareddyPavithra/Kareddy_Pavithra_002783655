@@ -5,6 +5,7 @@
 package ui;
 
 import javax.swing.JOptionPane;
+import model.HospitalsList;
 
 /**
  *
@@ -12,11 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class UserLoginFrame extends javax.swing.JFrame {
 
+    HospitalsList hospitalsList;
     /**
      * Creates new form UserLoginFrame
+     * @param hospitalsList
      */
-    public UserLoginFrame() {
+    public UserLoginFrame(HospitalsList hospitalsList) {
         initComponents();
+        this.hospitalsList = hospitalsList;
     }
 
     /**
@@ -153,7 +157,7 @@ public class UserLoginFrame extends javax.swing.JFrame {
         }
         else if (password.contains("Hosp123") && (username.contains("hospad")))
         {
-            HospitalFrame hospad = new HospitalFrame();
+            HospitalFrame hospad = new HospitalFrame(hospitalsList);
             hospad.setVisible(true);
             dispose();
         }

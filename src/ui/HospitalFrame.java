@@ -4,17 +4,25 @@
  */
 package ui;
 
+import model.DoctorDetails;
+import model.HospitalAdmin;
+import model.HospitalsList;
+
 /**
  *
  * @author pavit
  */
 public class HospitalFrame extends javax.swing.JFrame {
 
+    private HospitalsList hospitalsList;
     /**
      * Creates new form HospitalFrame
+     * @param hospitalsList
      */
-    public HospitalFrame() {
+    public HospitalFrame(HospitalsList hospitalsList) {
         initComponents();
+        this.hospitalsList = hospitalsList;
+        
     }
 
     /**
@@ -197,6 +205,24 @@ public class HospitalFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String hospitalName = txtHospital.getText();
+        HospitalAdmin hospitalSearch = null;
+        String doctorName = txtDoctorName.getText();
+        String userName = txtDoctorUsername.getText();
+        DoctorDetails doctor = new DoctorDetails();
+        doctor.setDoctor(doctorName);
+        doctor.setUsernamed(userName);
+        
+        for(HospitalAdmin hospital: hospitalsList.getHospitalList()){
+            if (hospital.getHospitalName().equals(hospitalName)) {
+                hospitalSearch = hospital;
+                break;
+            }
+        }
+        if (hospitalSearch != null) {
+            hospitalSearch.addDoctor(doctor);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

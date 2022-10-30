@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class City {
     private String cityName;
-private List<Community>communities;
-private String community;
-private String hospital;
+    private List<Community>communities;
+    private String community;
+    private String hospital;
 
     public String getHospital() {
         return hospital;
@@ -23,11 +23,7 @@ private String hospital;
     public void setHospital(String hospital) {
         this.hospital = hospital;
     }
-
-
-public City(){
-}
-
+    
     public City(String cityName, String community, String hospital){
         this.cityName = cityName;
         this.community = community;

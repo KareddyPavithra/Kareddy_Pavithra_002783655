@@ -11,12 +11,20 @@ import java.util.ArrayList;
  * @author pavit
  */
 public class HospitalAdmin {
+    
+    private String hospitalName;
     private ArrayList<DoctorDetails> doclist;
     
-    public HospitalAdmin(){
-        this.doclist = new ArrayList<DoctorDetails>();
+    public HospitalAdmin(String hospitalName){
+        
+        this.hospitalName = hospitalName;
+        this.doclist = new ArrayList<>();
     }
 
+    public String getHospitalName() {
+        return hospitalName;
+    }
+    
     public ArrayList<DoctorDetails> getDoclist() {
         return doclist;
     }
@@ -25,4 +33,9 @@ public class HospitalAdmin {
         this.doclist = doclist;
     }
     
+    public void addDoctor(DoctorDetails doctor) {
+        this.doclist.add(doctor);
+    }
+    
 }
+

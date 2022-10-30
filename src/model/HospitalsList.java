@@ -4,10 +4,24 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author pavit
  */
 public class HospitalsList {
+    private ArrayList<HospitalAdmin> hospitalList;
+    
+    public HospitalsList() {
+        hospitalList = new ArrayList<>();
+    }
+    
+    public ArrayList<HospitalAdmin> getHospitalList() {
+        return hospitalList;
+    }
+    public void addHospital(HospitalAdmin hospital) {
+        hospitalList.add(hospital);
+    }
     
 }
