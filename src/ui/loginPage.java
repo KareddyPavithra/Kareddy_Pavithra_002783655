@@ -31,6 +31,7 @@ public class loginPage extends javax.swing.JFrame {
     private Citylist cityList; 
     private City city; 
     private Community community; 
+    //private String community;
     protected List<Community> communities;
     
     public loginPage() {

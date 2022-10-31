@@ -354,6 +354,7 @@ public class PersonFrame extends javax.swing.JFrame {
         p.setGender(gender);
         p.setPhonenumber(phoneNumber);
         p.setEmail(email);
+        p.setAddress(address);
         p.setCity(city);
         p.setCommunity(community);
         p.setHospital(hospital);

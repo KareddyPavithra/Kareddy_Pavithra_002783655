@@ -58,14 +58,16 @@ public class CommunityFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        comboCity = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        comboCommunity = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        comboHospital = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
+        txtAddress = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        comboCity = new javax.swing.JComboBox<>();
+        comboCommunity = new javax.swing.JComboBox<>();
+        comboHospital = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,13 +79,13 @@ public class CommunityFrame extends javax.swing.JFrame {
 
         tblCommunity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Patient Id", "Age", "Gender", "Phone Number", "Email", "City", "Community", "Hospital"
+                "Name", "Patient Id", "Age", "Gender", "Phone Number", "Email", "Address", "City", "Community", "Hospital"
             }
         ));
         tblCommunity.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,67 +175,75 @@ public class CommunityFrame extends javax.swing.JFrame {
             }
         });
 
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddressActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Address:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addComponent(jLabel4))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jLabel11)))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel5))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnMale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnFemale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnOther)
-                                .addGap(59, 59, 59)
-                                .addComponent(btnUpdate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(835, 835, 835))
+                                .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3)
-                                .addGap(25, 25, 25))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(740, 740, 740)
+                                        .addComponent(jButton3))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(25, 25, 25))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addComponent(jLabel4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jLabel11)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(40, 40, 40)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel6)
+                                                .addComponent(jLabel5))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel16)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnMale)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnFemale)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnOther)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(btnUpdate))
+                                    .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(327, 327, 327)
                                 .addComponent(jLabel1))
@@ -241,20 +251,22 @@ public class CommunityFrame extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
-                                .addComponent(btnView)))
+                                .addComponent(btnView))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -298,10 +310,14 @@ public class CommunityFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -368,9 +384,10 @@ public class CommunityFrame extends javax.swing.JFrame {
         String Name = txtName.getText();
         long PatientID = Long.parseLong(txtPatientID.getText());
         int Age = Integer.parseInt(txtAge.getText());
+        String Gender = btnMale.getText();
         long PhoneNumber = Long.parseLong(txtPhoneNumber.getText());
         String EmailId = txtEmail.getText();
-       // String address = txtAddress.getText();
+        String address = txtAddress.getText();
         String City = comboCity.getToolTipText();
         String Community = comboCommunity.getToolTipText();
         String Hospital = comboHospital.getToolTipText();
@@ -378,20 +395,22 @@ public class CommunityFrame extends javax.swing.JFrame {
         model.setValueAt(Name, tblCommunity.getSelectedRow(), 0);
         model.setValueAt(PatientID, tblCommunity.getSelectedRow(), 1);
         model.setValueAt(Age, tblCommunity.getSelectedRow(), 2);
+        model.setValueAt(Gender, tblCommunity.getSelectedRow(), 3);
         model.setValueAt(PhoneNumber, tblCommunity.getSelectedRow(), 4);
         model.setValueAt(EmailId, tblCommunity.getSelectedRow(), 5);
-        //model.setValueAt(address, tblCommunity.getSelectedRow(), 6);
-        model.setValueAt(City, tblCommunity.getSelectedRow(), 6);
-        model.setValueAt(Community, tblCommunity.getSelectedRow(), 7);
-        model.setValueAt(Hospital, tblCommunity.getSelectedRow(), 8);
+        model.setValueAt(address, tblCommunity.getSelectedRow(), 6);
+        model.setValueAt(City, tblCommunity.getSelectedRow(), 7);
+        model.setValueAt(Community, tblCommunity.getSelectedRow(), 8);
+        model.setValueAt(Hospital, tblCommunity.getSelectedRow(), 9);
 
         
         selectedPatient.setName(Name);
         selectedPatient.setPatientId(PatientID);
         selectedPatient.setAge(Age);
+        selectedPatient.setGender(Gender);
         selectedPatient.setPhonenumber(PhoneNumber);
         selectedPatient.setEmail(EmailId);
-        //selectedPatient.setAddress(address);
+        selectedPatient.setAddress(address);
         selectedPatient.setCity(City);
         selectedPatient.setCommunity(Community);
         selectedPatient.setHospital(Hospital);
@@ -440,18 +459,19 @@ public class CommunityFrame extends javax.swing.JFrame {
         String gender = model.getValueAt(tblCommunity.getSelectedRow(), 3).toString();
         String PhoneNumber = model.getValueAt(tblCommunity.getSelectedRow(), 4).toString();
         String EmailId = model.getValueAt(tblCommunity.getSelectedRow(), 5).toString();
-       // String Address = model.getValueAt(tblCommunity.getSelectedRow(), 6).toString();
-        String City = model.getValueAt(tblCommunity.getSelectedRow(), 6).toString();
-        String Community = model.getValueAt(tblCommunity.getSelectedRow(), 7).toString();
-        String HospitalV = model.getValueAt(tblCommunity.getSelectedRow(), 8).toString();
+        String Address = model.getValueAt(tblCommunity.getSelectedRow(), 6).toString();
+        String City = model.getValueAt(tblCommunity.getSelectedRow(), 7).toString();
+        String Community = model.getValueAt(tblCommunity.getSelectedRow(), 8).toString();
+        String HospitalV = model.getValueAt(tblCommunity.getSelectedRow(), 9).toString();
         
         
         txtName.setText(Name);
         txtPatientID.setText(PatientID);
         txtAge.setText(Age);
+        btnMale.setText(gender);
         txtPhoneNumber.setText(PhoneNumber);
         txtEmail.setText(EmailId);
-        //txtAddress.setText(Address);
+        txtAddress.setText(Address);
         comboCity.setToolTipText(City);
         comboCommunity.setToolTipText(Community);
         comboHospital.setToolTipText(HospitalV);
@@ -472,9 +492,10 @@ public class CommunityFrame extends javax.swing.JFrame {
         txtName.setText(selectedPatient.getName());
         txtPatientID.setText(String.valueOf(selectedPatient.getPatientId()));
         txtAge.setText(String.valueOf(selectedPatient.getAge()));
+        btnMale.setText(selectedPatient.getGender());
         txtPhoneNumber.setText(String.valueOf(selectedPatient.getPhonenumber()));
         txtEmail.setText(selectedPatient.getEmail());
-        //txtAddress.setText(selectedPatient.getAddress());
+        txtAddress.setText(selectedPatient.getAddress());
         comboCity.setToolTipText(selectedPatient.getCity());
         comboCommunity.setToolTipText(selectedPatient.getCommunity());
         comboHospital.setToolTipText(selectedPatient.getHospital());
@@ -484,6 +505,10 @@ public class CommunityFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnViewActionPerformed
+
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,6 +559,7 @@ public class CommunityFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
@@ -545,6 +571,7 @@ public class CommunityFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblCommunity;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
@@ -561,7 +588,7 @@ System.out.println("CommunityFrame: ");
 for(Person p : history.getHistory()){
     Object [] row = new Object[10];
     row[0] = p;
-    System.out.println("CommunityFrame1: "+p.getPhonenumber());
+    //System.out.println("CommunityFrame1: "+p.getPhonenumber());
     row[1] = p.getPatientId();
     row[2] = p.getAge();
     row[3] = p.getGender();
