@@ -16,6 +16,7 @@ public class Community {
         this.communityName = communityName;
     }
 
+   
     public String getCommunity() {
         return communityName;
     }

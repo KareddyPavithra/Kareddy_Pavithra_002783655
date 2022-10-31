@@ -60,7 +60,7 @@ public class SystemSearchFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployee = new javax.swing.JTable();
+        tblEncHis = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -212,18 +212,18 @@ public class SystemSearchFrame extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel21.setText("Encounter History");
 
-        tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
+        tblEncHis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Patient Id", "Encounter", "Temperature", "Blood Pressure", "Sugar Level", "Weight"
+                "Patient Id", "Encounter", "Temperature", "Blood Pressure", "Sugar Level", "Weight"
             }
         ));
-        jScrollPane1.setViewportView(tblEmployee);
+        jScrollPane1.setViewportView(tblEncHis);
 
         jButton7.setBackground(new java.awt.Color(204, 255, 204));
         jButton7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -673,7 +673,7 @@ public class SystemSearchFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTable tblEmployee;
     private javax.swing.JTable tblEmployee1;
+    private javax.swing.JTable tblEncHis;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,11 +7,12 @@ package ui;
 import java.util.List;
 import model.Citylist;
 import model.City;
-import model.PersonList;
+import model.PatientList;
 import model.HospitalsList;
 import model.DoctorsList;
 import model.PersonHistory;
 import model.Community;
+import model.VitalSignsHistory;
 
 /**
  *
@@ -23,8 +24,9 @@ public class loginPage extends javax.swing.JFrame {
      * Creates new form loginPage
      */
     PersonHistory history = new PersonHistory();
+    VitalSignsHistory history1 = new VitalSignsHistory();
     private HospitalsList hospitalsList;
-    private PersonList patient;
+    private PatientList patient;
     private DoctorsList doctorslist;
     private Citylist cityList; 
     private City city; 
@@ -34,7 +36,7 @@ public class loginPage extends javax.swing.JFrame {
     public loginPage() {
         initComponents();
         hospitalsList = new HospitalsList();
-        patient = new PersonList();
+        patient = new PatientList();
         doctorslist = new DoctorsList();
         //community = new Community();
         //communities.add(community);
@@ -185,7 +187,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void HospitalAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalAdminBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
+        LoginFrame userlogpanel = new LoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -193,7 +195,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void PatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
+        LoginFrame userlogpanel = new LoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -201,7 +203,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void DoctorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
+        LoginFrame userlogpanel = new LoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -209,7 +211,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void SystemAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemAdminBtnActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
+        LoginFrame userlogpanel = new LoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -217,7 +219,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void CommunityAdminBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommunityAdminBtn1ActionPerformed
         // TODO add your handling code here:
-        UserLoginFrame userlogpanel = new UserLoginFrame(hospitalsList,patient,doctorslist,cityList);
+        LoginFrame userlogpanel = new LoginFrame(hospitalsList,patient,doctorslist,cityList);
         userlogpanel.setVisible(true);
         
         dispose();
@@ -225,7 +227,7 @@ public class loginPage extends javax.swing.JFrame {
 
     private void PersonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonBtnActionPerformed
         // TODO add your handling code here:
-        PersonFrame personpanel = new PersonFrame ();
+        PersonFrame personpanel = new PersonFrame (history);
         personpanel.setVisible(true);
         
         dispose();

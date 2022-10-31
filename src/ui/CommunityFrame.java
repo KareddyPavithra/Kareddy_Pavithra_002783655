@@ -18,10 +18,13 @@ public class CommunityFrame extends javax.swing.JFrame {
     /**
      * Creates new form Community
      */
-    PersonHistory history = new PersonHistory();
-    public CommunityFrame() {
+    static PersonHistory history;
+    public CommunityFrame(PersonHistory history) {
         initComponents();
         this.history = history;
+        System.out.println("Community Frame Entered");
+        
+        
         populateTable();
     }
 
@@ -494,7 +497,7 @@ public class CommunityFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CommunityFrame().setVisible(true);
+                new CommunityFrame(history).setVisible(true);
             }
         });
     }
@@ -540,10 +543,12 @@ private void populateTable(){
 
 DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
 model.setRowCount(0);
+System.out.println("CommunityFrame: ");
 
 for(Person p : history.getHistory()){
     Object [] row = new Object[10];
     row[0] = p;
+    System.out.println("CommunityFrame1: "+p.getPhonenumber());
     row[1] = p.getPatientId();
     row[2] = p.getAge();
     row[3] = p.getGender();

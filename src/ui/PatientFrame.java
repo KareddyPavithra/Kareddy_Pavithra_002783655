@@ -4,7 +4,12 @@
  */
 package ui;
 
+import javax.swing.table.DefaultTableModel;
 import model.City;
+import model.Person;
+import model.VitalSigns;
+import static ui.CommunityFrame.history;
+import static ui.DoctorFrame.history1;
 
 /**
  *
@@ -15,9 +20,12 @@ public class PatientFrame extends javax.swing.JFrame {
     /**
      * Creates new form PatientFrame
      */
-    public PatientFrame() {
+    public PatientFrame(VitalSigns history11) {
         initComponents();
         loadComboBoxData();
+        
+        
+        populateTable1();
     }
  
     /**
@@ -55,7 +63,7 @@ public class PatientFrame extends javax.swing.JFrame {
         lblCommunity1 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployee = new javax.swing.JTable();
+        tblEncounterHistory = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         lblName1 = new javax.swing.JLabel();
         lblTemperature = new javax.swing.JLabel();
@@ -196,18 +204,18 @@ public class PatientFrame extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel21.setText("Encounter History");
 
-        tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
+        tblEncounterHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Patient Id", "Encounter", "Temperature", "Blood Pressure", "Sugar Level", "Weight"
+                "Patient Id", "Encounter", "Temperature", "Blood Pressure", "Sugar Level", "Weight"
             }
         ));
-        jScrollPane1.setViewportView(tblEmployee);
+        jScrollPane1.setViewportView(tblEncounterHistory);
 
         jButton7.setBackground(new java.awt.Color(204, 255, 204));
         jButton7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -414,9 +422,9 @@ public class PatientFrame extends javax.swing.JFrame {
                             .addComponent(lblAddress)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCommunity1)
-                            .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCommunity1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -578,7 +586,7 @@ public class PatientFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PatientFrame().setVisible(true);
+                new PatientFrame(history1).setVisible(true);
             }
         });
     }
@@ -626,7 +634,7 @@ public class PatientFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblWeight;
     private javax.swing.JButton searchBtn;
     private javax.swing.JComboBox<String> searchType;
-    private javax.swing.JTable tblEmployee;
+    private javax.swing.JTable tblEncounterHistory;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtBloodPressure;
@@ -639,4 +647,23 @@ public class PatientFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable1(){
+
+DefaultTableModel model = (DefaultTableModel) tblEncounterHistory.getModel();
+model.setRowCount(0);
+
+for(VitalSigns vs : history1.getHistory1()){
+    Object [] row = new Object[6];
+    row[0] = vs;
+    row[1] = vs.getEncounterno();
+    row[2] = vs.getTemperature();
+    row[3] = vs.getBloodPressure();
+    row[4] = vs.getDiabetes();
+    row[5] = vs.getWeight();
+    
+    model.addRow(row);   
+   }
+
+  }
 }

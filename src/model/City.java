@@ -14,6 +14,7 @@ import java.util.List;
 public class City {
     private String cityName;
     protected List<Community> communities = new ArrayList<>();
+    private String community;
     private String hospital;
 
     public String getHospital() {
@@ -26,7 +27,7 @@ public class City {
     
     public City(String cityName, String community, String hospital){
         this.cityName = cityName;
-        //this.community = community;
+        this.community = community;
         this.hospital = hospital;
     }
 
@@ -43,9 +44,17 @@ public class City {
     }
 
     public void setCommunities(String communityName) {
-//        this.communities = communities;
+        this.communities = communities;
           Community community = new Community(communityName);
           communities.add(community);
+    }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
     }
 
     

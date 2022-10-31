@@ -21,10 +21,12 @@ public class PersonFrame extends javax.swing.JFrame {
     /**
      * Creates new form PersonFrame
      */
-    PersonHistory history = new PersonHistory();
-    public PersonFrame(){
+    static PersonHistory history = new PersonHistory();
+    
+    public PersonFrame(PersonHistory history){
         initComponents();
         this.history = history;
+        
         loadComboBoxData();
     }
 
@@ -344,6 +346,8 @@ public class PersonFrame extends javax.swing.JFrame {
         String doctor=(String)comboDoctor.getSelectedItem();
 
         Person p = history.addNewPerson();
+        
+        
         p.setName(name);
         p.setPatientId(patient_id);
         p.setAge(age);
@@ -441,7 +445,7 @@ public class PersonFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonFrame().setVisible(true);
+                new PersonFrame(history).setVisible(true);
             }
         });
     }

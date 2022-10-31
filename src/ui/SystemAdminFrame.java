@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.HospitalsList;
 import model.PersonHistory;
+import static ui.DoctorFrame.history1;
 
 /**
  *
@@ -271,7 +272,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonActionPerformed
         // TODO add your handling code here:
-        PersonFrame personpanel = new PersonFrame();
+        PersonFrame personpanel = new PersonFrame(history);
         personpanel.setVisible(true);
 
         dispose();
@@ -279,7 +280,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        PatientFrame patientpanel = new PatientFrame();
+        PatientFrame patientpanel = new PatientFrame(history1);
         patientpanel.setVisible(true);
 
         dispose();

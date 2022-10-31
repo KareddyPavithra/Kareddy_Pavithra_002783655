@@ -4,8 +4,15 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.DoctorDetails;
+import model.Person;
+import model.PersonHistory;
+import model.VitalSigns;
+import model.VitalSignsHistory;
+import static ui.PersonFrame.history;
 
 /**
  *
@@ -16,8 +23,11 @@ public class DoctorFrame extends javax.swing.JFrame {
     /**
      * Creates new form DoctorFrame
      */
-    public DoctorFrame() {
+    static VitalSigns history1 = new VitalSigns();
+    public DoctorFrame(VitalSigns history1) {
         initComponents();
+        this.history1 = history1;
+        
         loadComboBoxData();
     }
 
@@ -35,18 +45,18 @@ public class DoctorFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtDoctor1 = new javax.swing.JTextField();
+        txtPatientId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtDoctor2 = new javax.swing.JTextField();
+        txtEncounterno = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtTemperature = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtBloodPressure = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtSugarLevel = new javax.swing.JTextField();
+        txtDiabetes = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtWeight = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnPatient = new javax.swing.JButton();
         comboDoc = new javax.swing.JComboBox<>();
@@ -86,9 +96,9 @@ public class DoctorFrame extends javax.swing.JFrame {
 
         jLabel14.setText("Sugar Level :");
 
-        txtSugarLevel.addActionListener(new java.awt.event.ActionListener() {
+        txtDiabetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSugarLevelActionPerformed(evt);
+                txtDiabetesActionPerformed(evt);
             }
         });
 
@@ -100,8 +110,13 @@ public class DoctorFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 153));
-        jButton1.setText("Save");
+        btnSave.setBackground(new java.awt.Color(255, 255, 153));
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -149,17 +164,17 @@ public class DoctorFrame extends javax.swing.JFrame {
                             .addComponent(jLabel15))
                         .addGap(78, 78, 78)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDoctor2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEncounterno, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(btnPatient)
                         .addGap(231, 231, 231)
-                        .addComponent(jButton1)))
+                        .addComponent(btnSave)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
@@ -178,11 +193,11 @@ public class DoctorFrame extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(txtDoctor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEncounterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
@@ -194,7 +209,7 @@ public class DoctorFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
-                    .addComponent(txtSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -208,7 +223,7 @@ public class DoctorFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnSave)
                                 .addGap(24, 24, 24))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnPatient)
@@ -239,9 +254,9 @@ public class DoctorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBloodPressureActionPerformed
 
-    private void txtSugarLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSugarLevelActionPerformed
+    private void txtDiabetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiabetesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSugarLevelActionPerformed
+    }//GEN-LAST:event_txtDiabetesActionPerformed
 
     private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
         // TODO add your handling code here:
@@ -262,6 +277,38 @@ public class DoctorFrame extends javax.swing.JFrame {
 
         dispose();
     }//GEN-LAST:event_btnPatientActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+       long patient_id = Long.parseLong(txtPatientId.getText());
+       int encounterno = Integer.parseInt(txtEncounterno.getText());
+       double temperature = Double.parseDouble(txtTemperature.getText());
+       double bloodPressure = Double.parseDouble(txtBloodPressure.getText());
+       double diabetes = Double.parseDouble(txtDiabetes.getText());
+       double weight = Double.parseDouble(txtWeight.getText());
+
+        VitalSigns vs = history1.addNewVitals();
+        
+        vs.setPatientId(patient_id);
+        vs.setTemperature(temperature);
+        vs.setBloodPressure(bloodPressure);
+        vs.setDiabetes(diabetes);
+        vs.setEncounterno(encounterno);
+        vs.setWeight(weight);
+        
+        JOptionPane.showMessageDialog(this ,"Vital Signs saved");
+        
+        txtTemperature.setText("");
+        txtBloodPressure.setText("");
+        txtDiabetes.setText("");
+        txtEncounterno.setText("");
+        txtWeight.setText("");
+        txtPatientId.setText("");
+    
+
+
+
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,7 +341,7 @@ public class DoctorFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new DoctorFrame().setVisible(true);
+                new DoctorFrame(history1).setVisible(true);
             }
         });
     }
@@ -311,8 +358,8 @@ private void loadComboBoxData(){
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPatient;
+    private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> comboDoc;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -325,9 +372,9 @@ private void loadComboBoxData(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtBloodPressure;
-    private javax.swing.JTextField txtDoctor1;
-    private javax.swing.JTextField txtDoctor2;
-    private javax.swing.JTextField txtSugarLevel;
+    private javax.swing.JTextField txtDiabetes;
+    private javax.swing.JTextField txtEncounterno;
+    private javax.swing.JTextField txtPatientId;
     private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables

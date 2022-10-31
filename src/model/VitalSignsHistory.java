@@ -10,8 +10,9 @@ import java.util.ArrayList;
  *
  * @author pavit
  */
-public class VitalSigns {
-    private Double weight;
+public class VitalSignsHistory {
+    private ArrayList<VitalSigns> history1;
+     private Double weight;
     private Double temperature;
     private Double bloodPressure;
     private Double diabetes;
@@ -24,16 +25,6 @@ public class VitalSigns {
 
     public void setPatientId(long patientId) {
         this.patientId = patientId;
-    }
-    private ArrayList<VitalSigns> history1;
-
-    
-    public int getEncounterno() {
-        return encounterno;
-    }
-
-    public void setEncounterno(int encounterno) {
-        this.encounterno = encounterno;
     }
 
     public Double getWeight() {
@@ -67,9 +58,19 @@ public class VitalSigns {
     public void setDiabetes(Double diabetes) {
         this.diabetes = diabetes;
     }
-    public VitalSigns(){
-    this.history1 = new ArrayList<VitalSigns>();
+
+    public int getEncounterno() {
+        return encounterno;
     }
+
+    public void setEncounterno(int encounterno) {
+        this.encounterno = encounterno;
+    }
+
+    
+    public VitalSignsHistory(){
+    this.history1 = new ArrayList<VitalSigns>();
+}
 
     public ArrayList<VitalSigns> getHistory1() {
         return history1;
@@ -79,13 +80,16 @@ public class VitalSigns {
         this.history1 = history1;
     }
     
-
-    public VitalSigns addNewVitals() {
-         VitalSigns newV = new VitalSigns();
+    public VitalSigns addNewVitals(){
+        VitalSigns newV = new VitalSigns();
         history1.add(newV);
         return newV;
     }
-
-   
+    public ArrayList<VitalSigns> getVitals(){
+        return history1;
+        
+    }
+    
+    
+    
 }
-
