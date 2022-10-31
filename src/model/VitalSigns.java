@@ -85,7 +85,6 @@ public class VitalSigns {
         history1.add(newV);
         return newV;
     }
-
    
 }
 

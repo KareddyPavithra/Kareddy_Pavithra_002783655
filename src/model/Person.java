@@ -99,5 +99,9 @@ public class Person {
     public void setHospital(String hospital) {
         this.hospital = hospital;
     }
+@Override
+public String toString(){
+    return name;
+}
     
 }
