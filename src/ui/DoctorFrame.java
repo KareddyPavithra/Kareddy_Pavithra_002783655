@@ -272,7 +272,7 @@ public class DoctorFrame extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        SystemSearchFrame patientpanel = new SystemSearchFrame();
+        SystemSearchFrame patientpanel = new SystemSearchFrame(history);
         patientpanel.setVisible(true);
 
         dispose();
