@@ -85,6 +85,10 @@ public class VitalSigns {
         history1.add(newV);
         return newV;
     }
+
+    public void deleteVitals(VitalSigns vs) {
+        history1.remove(vs);
+    }
    
 }
 
