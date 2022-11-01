@@ -159,6 +159,11 @@ public class CommunityFrame extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        btnUpdate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnUpdateKeyReleased(evt);
+            }
+        });
 
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -418,16 +423,17 @@ public class CommunityFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Details Updated");
         
     }
-    else{
-        if(tblCommunity.getRowCount()==0){
-            JOptionPane.showMessageDialog(this, "Table is empty");
+    //else{
+        //if(tblCommunity.getRowCount()==0){
+           // JOptionPane.showMessageDialog(this, "Table is empty");
 
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Select a row to update");
+        //}
+        //else{
+          //  JOptionPane.showMessageDialog(this, "Select a row to update");
 
-        }
-    }
+        //}
+    
+
     
         
 
@@ -509,6 +515,11 @@ public class CommunityFrame extends javax.swing.JFrame {
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnUpdateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnUpdateKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnUpdateKeyReleased
 
     /**
      * @param args the command line arguments
